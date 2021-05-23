@@ -1,0 +1,67 @@
+<?php
+use Magento\Framework\App\Action\Action;
+/* @var $block \Eloom\Widgets\Block\Widget\ProductsByCategory */
+
+if ($exist = ($block->getProductCollection() && $block->getProductCollection()->getSize())):
+	$alias = 'widget-products-' . $this->getAlias();
+	$items = $block->getProductCollection()->getItems();
+	
+	$type = 'widget-new-grid';
+?>
+
+	<div class="block-title">
+		<strong role="heading" aria-level="2"><?= $block->escapeHtml($block->getTitle()) ?></strong>
+	</div>
+	<div class="block-content">
+			<div id="<?php echo $alias; ?>" class="owl-carousel owl-theme">
+				<?php foreach ($items as $_item):?>
+					<div class="product-item">
+						<div class="product-item-info">
+							<a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>"
+							   class="product-item-photo">
+								<?= $block->getImage($_item, 'category_page_grid')->toHtml() ?>
+							</a>
+							<div class="product-item-details">
+								<strong class="product-item-name">
+									<a title="<?= $block->escapeHtml($_item->getName()) ?>"
+									   href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>"
+									   class="product-item-link">
+										<?= $block->escapeHtml($_item->getName()) ?>
+									</a>
+								</strong>
+								
+								<?= $block->getProductPriceHtml($_item, $type) ?>
+							</div>
+						</div>
+					</div>
+				<?php endforeach ?>
+			</div>
+		</div>
+
+	<script type="text/x-magento-init">
+    {
+        "<?php echo "#{$alias}"?>": {
+            "EloomOwlCarousel": {
+                "loop": true,
+								"margin": 10,
+								"dots": false,
+								"rewindNav": true,
+								"nav": true,
+								"navText": ["", ""],
+							  "animateOut": "fadeOut",
+                "responsive": {
+									"0": {
+										"items": 1
+									},
+									"600": {
+										"items": 2
+									},
+									"1000": {
+										"items": 4
+									}
+								}
+            }
+        }
+    }
+	</script>
+<?php endif;?>

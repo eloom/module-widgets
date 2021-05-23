@@ -1,0 +1,39 @@
+<?php
+/* @var $block \Eloom\Widgets\Block\Widget\Carousel */
+echo $block->renderCarousel();
+?>
+
+<script type="text/x-magento-init">
+    {
+        "<?= '#' . $block->getSliderHtmlId() ?>": {
+            "EloomOwlCarousel": {
+                "autoPlay": 3000,
+                "loop": true,
+								"margin": 0,
+								"smartSpeed": 500,
+								"rewindNav": true,
+								"nav": true,
+								"navText": ["", ""],
+								"responsiveClass": true,
+								"animateOut": "fadeOut",
+								"responsive": {
+									"0": {
+										"items": 1,
+										"nav": false,
+										"dots": true
+									},
+									"600": {
+										"items": 1,
+										"nav": false,
+										"dots": true
+									},
+									"1120": {
+										"items": 1,
+										"nav": false,
+										"dots": true
+									}
+								}
+            }
+        }
+    }
+</script>

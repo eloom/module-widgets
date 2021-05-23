@@ -1,0 +1,28 @@
+<?php
+/* @var $block \Eloom\Widgets\Block\Widget\Banner */
+$items = $block->getItensCollection();
+$total = $block->getData('total');
+?>
+<div class="block widget widget-banner widget-banner-<?= $total ?>">
+	<div class="block-title">
+		<strong role="heading" aria-level="2"><?= $block->escapeHtml($block->getTitle()) ?></strong>
+	</div>
+	<div class="widget-banner-<?= $total ?>">
+		<?php foreach ($items as $item):?>
+			<div class="item banner">
+				<a href="<?php echo $item->getUrl() ?>" target="<?php echo $item->getTargetUrl() ?>">
+					<div class="image large">
+						<img src="<?php echo $block->getItemImageUrl($item) ?>" loading="lazy"/>
+					</div>
+					<div class="image mobile">
+						<img src="<?php echo $block->getItemMobileImageUrl($item) ?>" loading="lazy"/>
+					</div>
+					<div class="container">
+							<h2><?php echo $item->getTitle() ?></h2>
+							<p><span class="description"><?php echo $item->getDescription() ?></span></p>
+					</div>
+				</a>
+			</div>
+		<?php endforeach ?>
+	</div>
+</div>

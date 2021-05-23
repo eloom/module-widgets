@@ -1,0 +1,41 @@
+{
+  "name": "eloom/module-widgets",
+  "description": "Widgets para Magento 2",
+  "homepage": "https://www.eloom.com.br/widgets",
+  "keywords": [
+    "magento",
+    "magento 2",
+    "commerce",
+    "ecommerce",
+    "e-commerce",
+    "widgets",
+    "shop",
+    "eloom"
+  ],
+  "authors": [
+    {
+      "name": "eloom",
+      "email": "contato@eloom.com.br"
+    }
+  ],
+  "support": {
+    "email": "contato@eloom.com.br"
+  },
+  "require": {
+    "php": "~7.3|~7.4",
+    "magento/framework": "103.0.*",
+    "eloom/theme-frontend": "dev-main"
+  },
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "autoload": {
+    "files": [
+      "src/module-widgets/registration.php"
+    ],
+    "psr-4": {
+      "Eloom\\Widgets\\": "src/module-widgets"
+    }
+  }
+}

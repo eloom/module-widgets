@@ -1,0 +1,45 @@
+<?php
+/* @var $block \Eloom\Widgets\Block\Widget\MultipleCarousel */
+$items = $block->getItensCollection();
+if ($exist = ($items && $items->getSize())) {
+	$alias = 'widget-multiple-carousel-' . $this->getAlias();
+	$style = $this->getCssStyle();
+}
+?>
+<?php if ($exist): ?>
+	<div id="<?php echo $alias; ?>" class="owl-carousel owl-theme">
+			<?php foreach ($items as $item): ?>
+				<div class="item full overlay">
+					<a href="<?php echo $item->getUrl() ?>" target="<?php echo $item->getTargetUrl() ?>">
+						<div class="container">
+							<div class="row">
+								<div>
+									<h2 style="<?php echo $style ?>"><?php echo $item->getTitle() ?></h2>
+									<p><span class="description" style="<?php echo $style ?>"><?php echo $item->getDescription() ?></span></p>
+								</div>
+							</div>
+						</div>
+					</a>
+					<div class="image large overlay" style="background-image:url(<?php echo $block->getItemImageUrl($item) ?>)"></div>
+					<div class="image mobile overlay" style="background-image:url(<?php echo $block->getItemMobileImageUrl($item) ?>)"></div>
+				</div>
+			<?php endforeach ?>
+		</div>
+
+	<script type="text/x-magento-init">
+    {
+        "<?php echo "#{$alias}"?>": {
+            "EloomOwlCarousel": {
+                "loop": true,
+								"margin": 10,
+								"dots": false,
+								"rewindNav": true,
+								"nav": true,
+								"navText": ["", ""],
+							  "animateOut": "fadeOut",
+							  "items": 1
+            }
+        }
+    }
+	</script>
+<?php endif; ?>

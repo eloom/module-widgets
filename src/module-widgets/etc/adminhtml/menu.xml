@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Eloom_Widgets::slider"
+		     title="Slider"
+		     module="Eloom_Widgets"
+		     action="eloomwidgets/slider/index"
+		     parent="Eloom_Core::menu"
+		     resource="Magento_Backend::content"
+		     sortOrder="20"/>
+
+		<add id="Eloom_Widgets::slider_itens"
+		     title="Slider item"
+		     module="Eloom_Widgets"
+		     action="eloomwidgets/slideritem/index"
+		     parent="Eloom_Widgets::slider"
+		     resource="Magento_Backend::content"
+		     sortOrder="21"/>
+	</menu>
+</config>
