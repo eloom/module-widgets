@@ -22,6 +22,7 @@ class ProductsByCategory extends AbstractSkeleton {
 			'title' => $this->getData('title'),
 			'products_count' => $this->getData('products_count'),
 			'products_per_page' => $this->getData('products_per_page'),
+			'page_var_name' => 'np',
 			'template' => 'lazy/' . $this->getData('template')
 		]);
 	}

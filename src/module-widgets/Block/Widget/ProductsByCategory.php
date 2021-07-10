@@ -26,19 +26,24 @@ use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Pricing\Render;
 use Magento\Framework\Serialize\Serializer\Json;
 use Magento\Framework\Url\EncoderInterface;
+use Magento\Framework\View\Element\AbstractBlock;
 use Magento\Framework\View\LayoutFactory;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Widget\Block\BlockInterface;
-use Magento\Framework\View\Element\AbstractBlock;
 
 class ProductsByCategory extends AbstractProduct implements BlockInterface {
 	
 	const DISPLAY_TYPE = 'products_by_category';
 	
 	/**
+	 * Default value for products count that will be shown
+	 */
+	const DEFAULT_PRODUCTS_COUNT = 10;
+	
+	/**
 	 * Default value for products per page
 	 */
-	const DEFAULT_PRODUCTS_PER_PAGE = 10;
+	const DEFAULT_PRODUCTS_PER_PAGE = 5;
 	
 	/**
 	 * Default value whether show pager or not
@@ -167,8 +172,12 @@ class ProductsByCategory extends AbstractProduct implements BlockInterface {
 	 * @return int
 	 */
 	public function getProductsCount() {
-		if (!$this->hasData('products_count')) {
-			return parent::getProductsCount();
+		if ($this->hasData('products_count')) {
+			return $this->getData('products_count');
+		}
+		
+		if (null === $this->getData('products_count')) {
+			$this->setData('products_count', self::DEFAULT_PRODUCTS_COUNT);
 		}
 		
 		return $this->getData('products_count');
@@ -184,9 +193,8 @@ class ProductsByCategory extends AbstractProduct implements BlockInterface {
 		if ($this->showPager() && $this->getProductCollection()->getSize() > $this->getProductsPerPage()) {
 			if (!$this->pager) {
 				$this->pager = $this->getLayout()->createBlock(Pager::class, 'widget.category.product.list.pager');
-				
 				$this->pager->setUseContainer(true)
-					->setShowAmounts(true)
+					->setShowAmounts(false)
 					->setShowPerPage(false)
 					->setPageVarName($this->getData('page_var_name'))
 					->setLimit($this->getProductsPerPage())
@@ -288,7 +296,9 @@ class ProductsByCategory extends AbstractProduct implements BlockInterface {
 			->addAttributeToSelect('*')
 			->addAttributeToFilter('status', Status::STATUS_ENABLED)
 			->addAttributeToFilter('visibility', 4)
-			->addStoreFilter($this->getStoreId())->setPageSize($this->getPageSize());
+			->addStoreFilter($this->getStoreId())
+			->setPageSize($this->getPageSize())
+			->setCurPage($this->getRequest()->getParam($this->getData('page_var_name'), 1));
 		
 		return $collection;
 	}

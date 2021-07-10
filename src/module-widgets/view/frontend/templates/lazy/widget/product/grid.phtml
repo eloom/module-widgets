@@ -1,6 +1,4 @@
 <?php
-use Magento\Framework\App\Action\Action;
-
 /* @var $block \Eloom\Widgets\Block\Widget\ProductsByCategory */
 ?>
 
@@ -8,8 +6,9 @@ use Magento\Framework\App\Action\Action;
 	<?php
 	$type = 'widget-new-grid';
 	$items = $block->getProductCollection()->getItems();
+	$alias = 'grid-' . $block->getAlias();
 	?>
-	<div class="block widget block-products-by-category grid">
+	<div class="block widget block-products-by-category grid" id="<?=$alias?>">
 		<div class="block-title">
 			<strong role="heading" aria-level="2"><?= $block->escapeHtml($block->getTitle()) ?></strong>
 		</div>
@@ -38,6 +37,15 @@ use Magento\Framework\App\Action\Action;
 					<?php endforeach ?>
 				</ol>
 			</div>
+			<?= $block->getPagerHtml() ?>
 		</div>
 	</div>
+
+	<script type="text/x-magento-init">
+	{
+			"#<?= $alias ?>": {
+	          "Eloom_Widgets/js/product/grid": {}
+	    }
+	}
+	</script>
 <?php endif;?>
