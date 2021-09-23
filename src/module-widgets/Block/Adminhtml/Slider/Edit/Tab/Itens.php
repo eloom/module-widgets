@@ -23,7 +23,10 @@ class Itens extends \Magento\Backend\Block\Widget\Grid\Extended {
 
 	protected $itemCollectionFactory;
 
-	public function __construct(Context $context, Data $backendHelper, CollectionFactory $itemCollectionFactory, array $data = []) {
+	public function __construct(Context $context,
+	                            Data $backendHelper,
+	                            CollectionFactory $itemCollectionFactory,
+	                            array $data = []) {
 		$this->itemCollectionFactory = $itemCollectionFactory;
 		parent::__construct($context, $backendHelper, $data);
 	}

@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Eloom\Widgets\Model\ResourceModel;
 
 class Slider extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb {
+	
 	protected function _construct() {
 		$this->_init('eloom_widgets_slider', 'slider_id');
 	}

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
 	<container name="root" label="Root">
-		<block class="Eloom\Widgets\Block\Adminhtml\Slider\Edit\Tab\Itens" name="itenslider.slider.edit.tab.itens"/>
-		<block class="Magento\Backend\Block\Widget\Grid\Serializer" name="crosssell_grid_serializer">
+		<block class="Eloom\Widgets\Block\Adminhtml\Slider\Edit\Tab\Itens"
+		       name="itenslider.slider.edit.tab.itens"/>
+		
+		<block class="Magento\Backend\Block\Widget\Grid\Serializer"
+		       name="cross_sell_grid_serializer">
 			<arguments>
 				<argument name="input_names" xsi:type="string">order_item_slider</argument>
 				<argument name="grid_block" xsi:type="string">itenslider.slider.edit.tab.itens</argument>

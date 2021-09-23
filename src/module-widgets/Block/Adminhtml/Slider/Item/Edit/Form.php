@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Eloom\Widgets\Block\Adminhtml\Slider\Item\Edit;
 
 class Form extends \Magento\Backend\Block\Widget\Form\Generic {
+	
 	protected function _prepareForm() {
 		$form = $this->_formFactory->create(
 			array(

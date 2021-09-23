@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Eloom\Widgets\Block\Adminhtml\Slider\Item\Edit;
 
 class Tabs extends \Magento\Backend\Block\Widget\Tabs {
+	
 	protected function _construct() {
 		parent::_construct();
 		$this->setId('slideritem_tabs');

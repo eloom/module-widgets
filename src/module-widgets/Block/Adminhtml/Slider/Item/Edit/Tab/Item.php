@@ -17,108 +17,111 @@ namespace Eloom\Widgets\Block\Adminhtml\Slider\Item\Edit\Tab;
 use Eloom\Widgets\Model\SliderFactory;
 use Eloom\Widgets\Model\Status;
 use Magento\Backend\Block\Template\Context;
+use Magento\Backend\Block\Widget\Form\Generic;
+use Magento\Backend\Block\Widget\Tab\TabInterface;
 use Magento\Cms\Model\Wysiwyg\Config;
 use Magento\Framework\Data\FormFactory;
 use Magento\Framework\DataObjectFactory;
 use Magento\Framework\Registry;
 
-class Item extends \Magento\Backend\Block\Widget\Form\Generic implements \Magento\Backend\Block\Widget\Tab\TabInterface {
-
+class Item extends Generic implements TabInterface {
+	
 	protected $objectFactory;
-
+	
 	protected $sliderFactory;
-
+	
 	protected $item;
-
+	
 	protected $wysiwygConfig;
-
-	public function __construct(Context $context,
-	                            Registry $registry,
-	                            FormFactory $formFactory,
-	                            DataObjectFactory $objectFactory,
+	
+	public function __construct(Context                   $context,
+	                            Registry                  $registry,
+	                            FormFactory               $formFactory,
+	                            DataObjectFactory         $objectFactory,
 	                            \Eloom\Widgets\Model\Item $item,
-	                            SliderFactory $sliderFactory,
-	                            Config $wysiwygConfig,
-	                            array $data = []) {
+	                            SliderFactory             $sliderFactory,
+	                            Config                    $wysiwygConfig,
+	                            array                     $data = []) {
 		$this->objectFactory = $objectFactory;
 		$this->item = $item;
 		$this->sliderFactory = $sliderFactory;
 		$this->wysiwygConfig = $wysiwygConfig;
+		
 		parent::__construct($context, $registry, $formFactory, $data);
 	}
-
+	
 	public function getTabLabel() {
 		return __('Slider Item Information');
 	}
-
+	
 	public function getTabTitle() {
 		return __('Slider Item Information');
 	}
-
+	
 	/**
 	 * {@inheritdoc}
 	 */
 	public function canShowTab() {
 		return true;
 	}
-
+	
 	/**
 	 * {@inheritdoc}
 	 */
 	public function isHidden() {
 		return false;
 	}
-
+	
 	protected function _prepareLayout() {
 		$this->getLayout()->getBlock('page.title')->setPageTitle($this->getPageTitle());
-
+		
 		\Magento\Framework\Data\Form::setFieldsetElementRenderer(
 			$this->getLayout()->createBlock('Eloom\Widgets\Block\Adminhtml\Form\Renderer\Fieldset\Element',
 				$this->getNameInLayout() . '_fieldset_element'
 			)
 		);
-
+		
 		return $this;
 	}
-
+	
 	public function getPageTitle() {
 		return $this->getItem()->getId() ? __("Edit Slider item '%1'", $this->escapeHtml($this->getItem()->getName())) : __('Add Slider item');
 	}
-
+	
 	public function getItem() {
 		return $this->_coreRegistry->registry('item');
 	}
-
+	
 	protected function _prepareForm() {
 		$itemAttributes = $this->item->getStoreAttributes();
 		$itemAttributesInStores = ['store_id' => ''];
-
+		
 		foreach ($itemAttributes as $itemAttribute) {
 			$itemAttributesInStores[$itemAttribute . '_in_store'] = '';
 		}
-
+		
 		$dataObj = $this->objectFactory->create(['data' => $itemAttributesInStores]);
 		$model = $this->_coreRegistry->registry('item');
-
+		
 		if ($sliderId = $this->getRequest()->getParam('current_slider_id')) {
 			$model->setSliderId($sliderId);
 		}
 		$dataObj->addData($model->getData());
-
+		
 		$storeId = $this->getRequest()->getParam('store');
-
+		
 		$form = $this->_formFactory->create();
-
+		
 		$form->setHtmlIdPrefix($this->item->getFormFieldHtmlIdPrefix());
-
+		
 		$fieldset = $form->addFieldset('base_fieldset', ['legend' => __('Slider item Information')]);
-
+		
 		if ($model->getId()) {
 			$fieldset->addField('item_id', 'hidden', ['name' => 'item_id']);
 		}
-
+		
 		$elements = [];
-
+		
 		$slider = $this->sliderFactory->create()->load($sliderId);
 		if ($slider->getId()) {
 			$elements['slider_id'] = $fieldset->addField(
@@ -146,7 +149,7 @@ class Item extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
 				]
 			);
 		}
-
+		
 		$elements['title'] = $fieldset->addField(
 			'title',
 			'text',
@@ -156,7 +159,7 @@ class Item extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
 				'title' => __('Title')
 			]
 		);
-
+		
 		$elements['description'] = $fieldset->addField(
 			'description',
 			'text',
@@ -166,7 +169,7 @@ class Item extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
 				'name' => 'description'
 			]
 		);
-
+		
 		$elements['image'] = $fieldset->addField(
 			'image',
 			'image',
@@ -188,7 +191,7 @@ class Item extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
 				'note' => __('Allow image type: jpg, jpeg, gif, png'),
 			]
 		);
-
+		
 		$elements['url'] = $fieldset->addField(
 			'url',
 			'text',
@@ -198,7 +201,7 @@ class Item extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
 				'name' => 'url',
 			]
 		);
-
+		
 		$elements['target_url'] = $fieldset->addField(
 			'target_url',
 			'select',
@@ -221,7 +224,7 @@ class Item extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
 				],
 			]
 		);
-
+		
 		$elements['order'] = $fieldset->addField(
 			'order',
 			'text',
@@ -231,7 +234,7 @@ class Item extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
 				'name' => 'order'
 			]
 		);
-
+		
 		$elements['status'] = $fieldset->addField(
 			'status',
 			'select',
@@ -242,10 +245,10 @@ class Item extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
 				'options' => Status::getAvailableStatuses(),
 			]
 		);
-
+		
 		$form->addValues($dataObj->getData());
 		$this->setForm($form);
-
+		
 		return parent::_prepareForm();
 	}
 }
