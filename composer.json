@@ -1,6 +1,6 @@
 {
   "name": "eloom/module-widgets",
-  "description": "Widgets para Magento 2",
+  "description": "Widgets para Magento",
   "homepage": "https://eloom.tech/widgets",
   "keywords": [
     "magento",
@@ -25,8 +25,7 @@
   "prefer-stable" : true,
   "require": {
     "php": "~7.3|~7.4",
-    "magento/framework": "103.0.*",
-    "eloom/theme-frontend": "dev-main"
+    "magento/framework": "103.0.*"
   },
   "license": [
     "OSL-3.0",
