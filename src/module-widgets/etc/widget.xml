@@ -79,7 +79,7 @@
 		<label>eloom | Banner</label>
 		<description></description>
 		<parameters>
-			<parameter name="title" xsi:type="text" visible="true" required="true">
+			<parameter name="title" xsi:type="text" visible="true">
 				<label translate="true">Title</label>
 			</parameter>
 			<parameter name="slider" xsi:type="select" source_model="Eloom\Widgets\Model\Config\Source\Slider" visible="true" required="true">

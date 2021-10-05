@@ -17,9 +17,11 @@ namespace Eloom\Widgets\Block\Widget\Skeleton;
 class OnSale extends AbstractSkeleton {
 	
 	public function getJsonConfig() {
+		$template = $this->getData('template') ?? 'widget/on-sale/grid.phtml';
+		
 		return $this->jsonEncoder->encode([
 			'products_count' => $this->getData('products_count'),
-			'template' => 'lazy/' . $this->getData('template')
+			'template' => 'lazy/' . $template
 		]);
 	}
 }

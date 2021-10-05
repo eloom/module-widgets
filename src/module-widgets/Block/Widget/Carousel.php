@@ -46,7 +46,7 @@ class Carousel extends AbstractSlider {
 		$width = $this->getData('width');
 		$height = $this->getData('height');
 		
-		$sliderWrapperClass = 'block widget widget-carousel';
+		$sliderWrapperClass = 'widget widget-carousel';
 		$sliderClass = 'owl-carousel owl-theme';
 		
 		$sliderType = $this->getData('layout');

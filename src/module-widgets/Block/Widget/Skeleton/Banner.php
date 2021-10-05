@@ -17,7 +17,7 @@ namespace Eloom\Widgets\Block\Widget\Skeleton;
 class Banner extends AbstractSkeleton {
 	
 	protected $_template = "widget/banner.phtml";
-
+	
 	public function getJsonConfig() {
 		return $this->jsonEncoder->encode([
 			'title' => $this->getData('title'),

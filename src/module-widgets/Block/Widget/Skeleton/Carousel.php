@@ -19,8 +19,10 @@ class Carousel extends AbstractSkeleton {
 	protected $_template = "widget/carousel.phtml";
 	
 	public function getJsonConfig() {
+		$layout = $this->getData('layout') ?? 'fullwidth';
+		
 		return $this->jsonEncoder->encode([
-			'layout' => $this->getData('layout'),
+			'layout' => $layout,
 			'slider' => $this->getData('slider'),
 			'width' => $this->getData('width'),
 			'height' => $this->getData('height')

@@ -23,9 +23,9 @@ abstract class AbstractSkeleton extends Template implements BlockInterface {
 	
 	protected $jsonEncoder;
 	
-	public function __construct(Context $context,
+	public function __construct(Context          $context,
 	                            EncoderInterface $jsonEncoder,
-	                            array $data = []) {
+	                            array            $data = []) {
 		$this->jsonEncoder = $jsonEncoder;
 		
 		parent::__construct($context, $data);

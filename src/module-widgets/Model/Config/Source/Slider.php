@@ -17,6 +17,7 @@ namespace Eloom\Widgets\Model\Config\Source;
 use Eloom\Widgets\Model\SliderFactory;
 
 class Slider implements \Magento\Framework\Option\ArrayInterface {
+	
 	protected $sliderFactory;
 
 	public function __construct(SliderFactory $sliderFactory) {
