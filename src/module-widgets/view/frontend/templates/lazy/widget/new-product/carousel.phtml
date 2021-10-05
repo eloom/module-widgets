@@ -6,7 +6,7 @@ use Magento\Framework\App\Action\Action;
 if ($block->getProductCollection() && $block->getProductCollection()->getSize()):
 $alias = 'widget-new-products-' . $this->getAlias();
 $items = $block->getProductCollection()->getItems();
-$type = 'widget-new-grid';
+$type = 'widget-product-grid';
 ?>
 	<div class="block-title">
 		<strong role="heading" aria-level="2"><?= $block->escapeHtml(__('New Products')) ?></strong>
