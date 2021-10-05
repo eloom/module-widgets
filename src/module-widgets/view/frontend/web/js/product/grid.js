@@ -10,7 +10,7 @@ define([
 	$.widget('mage.EloomWidgetGrid', {
 		options: {
 			selectors: {
-				container: 'div.block-products-by-category'
+				container: 'div.block-products'
 			},
 		},
 

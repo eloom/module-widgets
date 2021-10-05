@@ -3,13 +3,15 @@
 $items = $block->getItems();
 if ($exist = ($items && $items->getSize())) {
 	$templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+	$alias = 'grid-' . $block->getAlias();
 }
 ?>
 <?php if ($exist):?>
-	<div class="block-title">
-		<strong role="heading" aria-level="2"><?= $block->escapeHtml(__('On Sale')) ?></strong>
-	</div>
-	<div class="block-content">
+	<div class="widget block-products grid" id="<?=$alias?>">
+		<div class="block-title">
+			<strong role="heading" aria-level="2"><?= $block->escapeHtml(__('On Sale')) ?></strong>
+		</div>
+		<div class="block-content">
 			<div class="products-grid grid">
 				<ol class="product-items widget-add-grid">
 					<?php foreach ($items as $_item):?>
@@ -36,4 +38,13 @@ if ($exist = ($items && $items->getSize())) {
 				</ol>
 			</div>
 		</div>
+	</div>
+
+	<script type="text/x-magento-init">
+	{
+			"#<?= $alias ?>": {
+	          "Eloom_Widgets/js/product/grid": {}
+	    }
+	}
+	</script>
 <?php endif;?>

@@ -9,10 +9,11 @@ use Magento\Framework\App\Action\Action;
 	$items = $block->getProductCollection()->getItems();
 	$alias = 'grid-' . $block->getAlias();
 	?>
-	<div class="block-title">
-		<strong role="heading" aria-level="2"><?php echo $block->escapeHtml(__('New Products')) ?></strong>
-	</div>
-	<div class="block-content">
+	<div class="widget block-products grid" id="<?=$alias?>">
+		<div class="block-title">
+			<strong role="heading" aria-level="2"><?php echo $block->escapeHtml(__('New Products')) ?></strong>
+		</div>
+		<div class="block-content">
 			<div class="products-grid grid">
 				<ol class="product-items <?php echo $type ?>">
 					<?php foreach ($items as $_item) : ?>
@@ -38,6 +39,7 @@ use Magento\Framework\App\Action\Action;
 				</ol>
 			</div>
 		  <?= $block->getPagerHtml() ?>
+	</div>
 	</div>
 
 	<script type="text/x-magento-init">
