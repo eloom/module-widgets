@@ -17,7 +17,9 @@ namespace Eloom\Widgets\Block\Widget\Skeleton;
 class ProductsByCategory extends AbstractSkeleton {
 	
 	public function getJsonConfig() {
-		$template = $this->getData('template') ?? 'widget/product/grid.phtml';
+		if (!$this->hasData('template')) {
+			$this->setData('template', 'widget/product/grid.phtml');
+		}
 		
 		return $this->jsonEncoder->encode([
 			'id_path' => $this->getData('id_path'),
@@ -25,7 +27,7 @@ class ProductsByCategory extends AbstractSkeleton {
 			'products_count' => $this->getData('products_count'),
 			'products_per_page' => $this->getData('products_per_page'),
 			'page_var_name' => 'np',
-			'template' => 'lazy/' . $template
+			'template' => 'lazy/' . $this->getData('template')
 		]);
 	}
 }

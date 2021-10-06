@@ -17,14 +17,16 @@ namespace Eloom\Widgets\Block\Widget\Skeleton;
 class NewProduct extends AbstractSkeleton {
 	
 	public function getJsonConfig() {
-		$template = $this->getData('template') ?? 'widget/new-product/grid.phtml';
+		if (!$this->hasData('template')) {
+			$this->setData('template', 'widget/new-product/grid.phtml');
+		}
 		
 		return $this->jsonEncoder->encode([
 			'display_type' => $this->getData('display_type') ?? 'all_products',
 			'products_count' => $this->getData('products_count'),
 			'products_per_page' => $this->getData('products_per_page'),
 			'page_var_name' => 'np',
-			'template' => 'lazy/' . $template
+			'template' => 'lazy/' . $this->getData('template')
 		]);
 	}
 }

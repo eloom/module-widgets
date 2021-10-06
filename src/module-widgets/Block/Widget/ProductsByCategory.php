@@ -252,6 +252,7 @@ class ProductsByCategory extends AbstractProduct implements BlockInterface {
 		if (!$this->hasData('show_pager')) {
 			$this->setData('show_pager', self::DEFAULT_SHOW_PAGER);
 		}
+		
 		return (bool)$this->getData('show_pager');
 	}
 	

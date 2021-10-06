@@ -54,6 +54,7 @@ class BestSellers extends AbstractProduct  implements BlockInterface {
 		if (null === $this->getData('products_count')) {
 			$this->setData('products_count', self::PRODUCTS_COUNT);
 		}
+		
 		return $this->getData('products_count');
 	}
 	

@@ -154,7 +154,9 @@ class NewProduct extends \Magento\Catalog\Block\Product\NewProduct implements Bl
 	protected function _getProductCollection() {
 		switch ($this->getDisplayType()) {
 			case self::DISPLAY_TYPE_NEW_PRODUCTS:
-				$collection = parent::_getProductCollection()->setPageSize($this->getPageSize());
+				$collection = parent::_getProductCollection()
+					->setPageSize($this->getPageSize())
+					->setCurPage($this->getRequest()->getParam($this->getData('page_var_name'), 1));
 				break;
 			default:
 				$collection = $this->_getRecentlyAddedProductsCollection();
@@ -177,7 +179,8 @@ class NewProduct extends \Magento\Catalog\Block\Product\NewProduct implements Bl
 		$collection = $this->_addProductAttributesAndPrices($collection)
 			->addStoreFilter()
 			->addAttributeToSort('created_at', 'desc')
-			->setPageSize($this->getPageSize());
+			->setPageSize($this->getPageSize())
+			->setCurPage($this->getRequest()->getParam($this->getData('page_var_name'), 1));
 		
 		return $collection;
 	}
@@ -218,9 +221,8 @@ class NewProduct extends \Magento\Catalog\Block\Product\NewProduct implements Bl
 		if ($this->showPager() && $this->getProductCollection()->getSize() > $this->getProductsPerPage()) {
 			if (!$this->pager) {
 				$this->pager = $this->getLayout()->createBlock(Pager::class, 'widget.new.product.list.pager');
-				
 				$this->pager->setUseContainer(true)
-					->setShowAmounts(true)
+					->setShowAmounts(false)
 					->setShowPerPage(false)
 					->setPageVarName($this->getData('page_var_name'))
 					->setLimit($this->getProductsPerPage())

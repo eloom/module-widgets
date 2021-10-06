@@ -17,13 +17,15 @@ namespace Eloom\Widgets\Block\Widget\Skeleton;
 class MultipleCarousel extends AbstractSkeleton {
 	
 	public function getJsonConfig() {
-		$template = $this->getData('template') ?? 'widget/multiple-carousel/on-left.phtml';
+		if (!$this->hasData('template')) {
+			$this->setData('template', 'widget/multiple-carousel/on-left.phtml');
+		}
 		
 		return $this->jsonEncoder->encode([
 			'slider' => $this->getData('slider'),
 			'bg_color' => $this->getData('bg_color'),
 			'color' => $this->getData('color'),
-			'template' => 'lazy/' . $template
+			'template' => 'lazy/' . $this->getData('template')
 		]);
 	}
 }

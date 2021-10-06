@@ -17,11 +17,13 @@ namespace Eloom\Widgets\Block\Widget\Skeleton;
 class BestSellers extends AbstractSkeleton {
 	
 	public function getJsonConfig() {
-		$template = $this->getData('template') ?? 'widget/bestsellers/grid.phtml';
+		if (!$this->hasData('template')) {
+			$this->setData('template', 'widget/bestsellers/grid.phtml');
+		}
 		
 		return $this->jsonEncoder->encode([
 			'products_count' => $this->getData('products_count'),
-			'template' => 'lazy/' . $template
+			'template' => 'lazy/' . $this->getData('template')
 		]);
 	}
 }
