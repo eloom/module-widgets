@@ -20,6 +20,9 @@ class ProductsByCategory extends AbstractSkeleton {
 		if (!$this->hasData('template')) {
 			$this->setData('template', 'widget/product/grid.phtml');
 		}
+		if (!$this->hasData('products_per_page')) {
+			$this->setData('products_per_page', \Eloom\Widgets\Block\Widget\ProductsByCategory::DEFAULT_PRODUCTS_PER_PAGE);
+		}
 		
 		return $this->jsonEncoder->encode([
 			'id_path' => $this->getData('id_path'),

@@ -20,6 +20,9 @@ class NewProduct extends AbstractSkeleton {
 		if (!$this->hasData('template')) {
 			$this->setData('template', 'widget/new-product/grid.phtml');
 		}
+		if (!$this->hasData('products_per_page')) {
+			$this->setData('products_per_page', \Eloom\Widgets\Block\Widget\NewProduct::DEFAULT_PRODUCTS_PER_PAGE);
+		}
 		
 		return $this->jsonEncoder->encode([
 			'display_type' => $this->getData('display_type') ?? 'all_products',

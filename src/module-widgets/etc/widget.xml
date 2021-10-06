@@ -180,10 +180,6 @@
 				<label translate="true">Number of Products to Display</label>
 				<value>20</value>
 			</parameter>
-			<parameter name="products_per_page" xsi:type="text" required="true" visible="true">
-				<label translate="true">Number of Products per Page</label>
-				<value>10</value>
-			</parameter>
 			<parameter name="template" xsi:type="select" required="true" visible="true">
 				<label translate="true">Template</label>
 				<options>
@@ -226,10 +222,6 @@
 			<parameter name="products_count" xsi:type="text" required="true" visible="true">
 				<label translate="true">Number of Products to Display</label>
 				<value>20</value>
-			</parameter>
-			<parameter name="products_per_page" xsi:type="text" required="true" visible="true">
-				<label translate="true">Number of Products per Page</label>
-				<value>10</value>
 			</parameter>
 			<parameter name="template" xsi:type="select" visible="true" required="true">
 				<label translate="true">Template</label>
