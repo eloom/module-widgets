@@ -42,7 +42,7 @@ class NewProduct extends \Magento\Catalog\Block\Product\NewProduct implements Bl
 	/**
 	 * Default value for products per page
 	 */
-	const DEFAULT_PRODUCTS_PER_PAGE = 6;
+	const DEFAULT_PRODUCTS_PER_PAGE = 4;
 	
 	/**
 	 * Default value whether show pager or not
