@@ -1,10 +1,6 @@
-# Widgets para Magento 2
+# Widgets para Magento
 
-O módulo Widgets para o Magento 2 é de código aberto e está disponível no [GitHub](https://github.com/eloom/module-widgets). O repositório [GitHub](https://github.com/eloom/module-widgets) está conectado ao [Repman](https://app.repman.io/organization/eloom/package/4507d2f5-e1b1-4057-963e-ae8fe4bdb1fa/details) para que você possa incluí-lo facilmente em seu projeto através do [Composer](https://getcomposer.org/).
-
-Acesse a página do projeto [Widgets para Magento 2](https://eloom.tech/widgets) e tenha uma visão completa de todos os recursos que nossa integração oferece.
-
-! Recomendamos que você teste o módulo em um servidor de teste antes de instalá-lo em seu servidor de produção.
+O módulo Widgets para o Magento é de código aberto e está disponível no [GitHub](https://github.com/eloom/module-widgets). O repositório [GitHub](https://github.com/eloom/module-widgets) está conectado ao [Repman](https://app.repman.io/organization/eloom/package/0044ea9e-21d9-4118-a539-fdc2d9e5d9bc/details) para que você possa incluí-lo facilmente em seu projeto através do [Composer](https://getcomposer.org/).
 
 ## Requisitos Técnicos
 
@@ -23,14 +19,11 @@ Acesse a página do projeto [Widgets para Magento 2](https://eloom.tech/widgets)
 - [x] widgets para produtos em promoção;
 - [x] widgets para produtos por categoria.
 
-## Guia de instalação
-
-Consulte a seção [Instalando o módulo](https://docs.eloom.tech/pt/widgets#instalando-o-modulo) no Magento 2.
-
 ## Links
 
-* [Web site](https://eloom.tech/widgets)
+* [Web site](https://eloom.tech/)
 * [Documentação](https://docs.eloom.tech/widgets)
 * [Issue tracker](https://github.com/eloom/module-widgets/issues)
-* [Composer](https://app.repman.io/organization/eloom/package/4507d2f5-e1b1-4057-963e-ae8fe4bdb1fa/details)
+* [Repman](https://app.repman.io/organization/eloom/package/0044ea9e-21d9-4118-a539-fdc2d9e5d9bc/details)
+* [Packagist](https://packagist.org/packages/eloom/module-widgets)
 * [Código fonte](https://github.com/eloom/module-widgets)
