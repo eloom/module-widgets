@@ -7,29 +7,30 @@ echo $block->renderCarousel();
     {
         "<?= '#' . $block->getSliderHtmlId() ?>": {
             "EloomOwlCarousel": {
-                "autoPlay": 3000,
+                "autoplay": true,
+                "autoplayTimeout": 3000,
+                "autoplayHoverPause": true,
                 "loop": true,
 								"margin": 0,
 								"smartSpeed": 500,
 								"rewindNav": true,
-								"nav": true,
 								"navText": ["", ""],
 								"responsiveClass": true,
 								"animateOut": "fadeOut",
 								"responsive": {
 									"0": {
 										"items": 1,
-										"nav": false,
+										"nav": true,
 										"dots": true
 									},
 									"600": {
 										"items": 1,
-										"nav": false,
+										"nav": true,
 										"dots": true
 									},
 									"1120": {
 										"items": 1,
-										"nav": false,
+										"nav": true,
 										"dots": true
 									}
 								}

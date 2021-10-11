@@ -40,22 +40,29 @@ $type = 'widget-product-grid';
     {
         "<?php echo "#{$alias}"?>": {
             "EloomOwlCarousel": {
+                "autoplay": true,
+                "autoplayTimeout": 3000,
+                "autoplayHoverPause": true,
                 "loop": true,
 								"margin": 10,
-								"dots": false,
 								"rewindNav": true,
-								"nav": true,
 								"navText": ["", ""],
 							  "animateOut": "fadeOut",
                 "responsive": {
 									"0": {
-										"items": 1
+										"items": 1,
+										"nav": true,
+										"dots": true
 									},
 									"600": {
-										"items": 2
+										"items": 2,
+										"nav": true,
+										"dots": true
 									},
 									"1000": {
-										"items": 4
+										"items": 4,
+										"nav": true,
+										"dots": true
 									}
 								}
             }

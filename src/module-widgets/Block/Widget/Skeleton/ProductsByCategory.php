@@ -23,6 +23,12 @@ class ProductsByCategory extends AbstractSkeleton {
 		if (!$this->hasData('products_per_page')) {
 			$this->setData('products_per_page', \Eloom\Widgets\Block\Widget\ProductsByCategory::DEFAULT_PRODUCTS_PER_PAGE);
 		}
+		/**
+		 * load all for carousel
+		 */
+		if (strpos($this->getData('template'), 'carousel')) {
+			$this->setData('products_per_page', $this->getData('products_count'));
+		}
 		
 		return $this->jsonEncoder->encode([
 			'id_path' => $this->getData('id_path'),

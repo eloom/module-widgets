@@ -30,9 +30,12 @@ if ($exist = ($items && $items->getSize())) {
     {
         "<?php echo "#{$alias}"?>": {
             "EloomOwlCarousel": {
+                "autoplay": true,
+                "autoplayTimeout": 3000,
+                "autoplayHoverPause": true,
                 "loop": true,
 								"margin": 10,
-								"dots": false,
+								"dots": true,
 								"rewindNav": true,
 								"nav": true,
 								"navText": ["", ""],
