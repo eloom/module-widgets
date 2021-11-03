@@ -62,7 +62,7 @@ class Carousel extends AbstractSlider {
 			case 'fullwidth':
 				$sliderWrapperClass .= ' fullwidthbanner-container';
 				$sliderClass .= ' fullwidthabanner';
-				$bannerStyle .= "max-height:{$height}px;height:{$height}px;";
+				$bannerStyle .= "max-height:{$height}px;";
 				$containerStyle .= "max-height:{$height}px;";
 				break;
 			case 'fullscreen':
