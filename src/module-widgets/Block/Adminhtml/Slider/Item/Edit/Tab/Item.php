@@ -177,7 +177,7 @@ class Item extends Generic implements TabInterface {
 				'title' => __('Desktop Image'),
 				'label' => __('Desktop Image'),
 				'name' => 'image',
-				'note' => __('Allow image type: jpg, jpeg, gif, png'),
+				'note' => __('Allow image type: jpg, jpeg, gif, png.<br>Size of images <a href="https://docs.eloom.tech/store/widgets/sliders#dimensoes-das-imagens" target="_blank">here</a>.'),
 			]
 		);
 		
@@ -188,7 +188,7 @@ class Item extends Generic implements TabInterface {
 				'title' => __('Mobile Image'),
 				'label' => __('Mobile Image'),
 				'name' => 'mobile_image',
-				'note' => __('Allow image type: jpg, jpeg, gif, png'),
+				'note' => __('Allow image type: jpg, jpeg, gif, png.<br>Size of images <a href="https://docs.eloom.tech/store/widgets/sliders#dimensoes-das-imagens" target="_blank">here</a>.'),
 			]
 		);
 		

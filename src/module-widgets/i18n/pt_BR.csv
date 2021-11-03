@@ -7,7 +7,7 @@
 # -- A
 "All products","Todos os produtos"
 "A total of %1 record(s) have been deleted.","%1 registros(s) removidos com sucesso."
-"Allow image type: jpg, jpeg, gif, png","Formatos de imagem permitidos: jpg, jpeg, gif, png"
+"Allow image type: jpg, jpeg, gif, png.<br>Size of images <a href=""https://docs.eloom.tech/store/widgets/sliders#dimensoes-das-imagens"" target=""_blank"">here</a>.","Formatos de imagem permitidos: jpg, jpeg, gif, png.<br><br>Dimensões das imagens <a href=""https://docs.eloom.tech/store/widgets/sliders#dimensoes-das-imagens"" target=""_blank"">aqui</a>."
 "Add Item","Adicionar Item"
 "Add Slider","Adicionar Slider"
 
