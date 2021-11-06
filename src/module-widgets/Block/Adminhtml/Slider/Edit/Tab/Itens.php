@@ -150,11 +150,11 @@ class Itens extends \Magento\Backend\Block\Widget\Grid\Extended {
 		);
 
 		$this->addColumn(
-			'order',
+			'position',
 			[
 				'header' => __('Sort Order'),
-				'name' => 'order',
-				'index' => 'order',
+				'name' => 'position',
+				'index' => 'position',
 				'width' => '50px',
 				'editable' => true,
 			]

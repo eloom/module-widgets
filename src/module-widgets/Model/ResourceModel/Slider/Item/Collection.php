@@ -63,12 +63,12 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
 	}
 
 	public function getItemCollection($sliderId) {
-		$itemCollection = $this->setStoreId($this->storeId)
+		$collection = $this->setStoreId($this->storeId)
 			->addFieldToFilter('slider_id', intval($sliderId))
 			->addFieldToFilter('status', \Eloom\Widgets\Model\Status::ENABLED)
-			->setOrder('\'order\'', 'ASC');
+			->setOrder('position', 'ASC');
 
-		return $itemCollection;
+		return $collection;
 	}
 
 	public function getConnection() {

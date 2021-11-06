@@ -225,13 +225,13 @@ class Item extends Generic implements TabInterface {
 			]
 		);
 		
-		$elements['order'] = $fieldset->addField(
-			'order',
+		$elements['position'] = $fieldset->addField(
+			'position',
 			'text',
 			[
 				'title' => __('Sort Order'),
 				'label' => __('Sort Order'),
-				'name' => 'order'
+				'name' => 'position'
 			]
 		);
 		
