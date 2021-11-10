@@ -10,7 +10,7 @@ if ($exist = ($items && $items->getSize())) {
 	<div id="<?php echo $alias; ?>" class="owl-carousel owl-theme">
 			<?php foreach ($items as $item): ?>
 				<div class="item full overlay">
-					<a href="<?php echo $item->getUrl() ?>" target="<?php echo $item->getTargetUrl() ?>">
+					<a href="<?php echo $item->getUrl() ?>" target="<?php echo $item->getTargetValue() ?>">
 						<div class="container">
 							<div class="row">
 								<div>

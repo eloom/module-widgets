@@ -42,9 +42,8 @@
 # -- K
 
 # -- L
-"Opens the linked document in the same frame as it was clicked","Nova página vinculada no mesmo quadro em que foi clicado"
-"Opens the linked document in the parent frame","Nova página vinculada a página pai"
-"Opens the linked document in a new window or tab","Nova página vinculada em uma nova janela ou guia"
+"Opens the linked document in the same frame as it was clicked","Nova página vinculada na mesma janela em que foi clicada"
+"Opens the linked document in a new window or tab","Nova página vinculada em uma nova janela"
 
 # -- N
 "New products","Novos produtos"

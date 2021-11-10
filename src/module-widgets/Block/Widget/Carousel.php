@@ -21,38 +21,37 @@ use Magento\Framework\View\Element\Template\Context;
 use Magento\Store\Model\StoreManagerInterface;
 
 class Carousel extends AbstractSlider {
-	
+
 	protected $_template = "lazy/widget/carousel.phtml";
-	
+
 	private $sliderHtmlId = null;
-	
+
 	private $sliderHtmlIdWrapper = null;
-	
-	public function __construct(Context $context,
-	                            SliderFactory $sliderFactory,
-	                            Data $sliderHelper,
+
+	public function __construct(Context               $context,
+	                            SliderFactory         $sliderFactory,
+	                            Data                  $sliderHelper,
 	                            StoreManagerInterface $storeManager,
-	                            array $data = []) {
-		
+	                            array                 $data = []) {
 		parent::__construct($context, $sliderFactory, $sliderHelper, $storeManager, $data);
 	}
-	
+
 	public function renderCarousel() {
 		if (null == $this->sliderHtmlId) {
 			$this->sliderHtmlId = "widget-carousel-{$this->getAlias()}";
 		}
 		$this->sliderHtmlIdWrapper = "{$this->sliderHtmlId}_wrapper";
-		
+
 		$width = $this->getData('width');
 		$height = $this->getData('height');
-		
+
 		$sliderWrapperClass = 'widget widget-carousel';
 		$sliderClass = 'owl-carousel owl-theme';
-		
+
 		$sliderType = $this->getData('layout');
 		$bannerStyle = '';
 		$containerStyle = '';
-		
+
 		switch ($sliderType) {
 			default:
 			case 'fixed':
@@ -71,27 +70,27 @@ class Carousel extends AbstractSlider {
 				$bannerStyle .= "min-height:100vh";
 				break;
 		}
-		
+
 		$output = '';
 		$output .= "<div id='{$this->sliderHtmlIdWrapper}' class='{$sliderWrapperClass}' style='{$containerStyle}'>";
 		$output .= "<div id='{$this->sliderHtmlId}' class='{$sliderClass}' style='{$bannerStyle}'>";
 		$output .= $this->renderSlides($bannerStyle);
 		$output .= "</div>";
 		$output .= "</div>";
-		
+
 		return $output;
 	}
-	
+
 	private function renderSlides($bannerStyle = '') {
 		$html = '';
 		foreach ($this->getItensCollection() as $item) {
 			$imgUrl = $this->getItemImageUrl($item);
 			$mobileImgUrl = $this->getItemMobileImageUrl($item);
-			
+
 			$html .= "<div class='item overlay' style='{$bannerStyle}'>
 				<img class='large' src='{$imgUrl}' loading='lazy'/>
 				<img class='mobile' src='{$mobileImgUrl}' loading='lazy'/>
-				<a href='{$item->getUrl()}' target='{$item->getTargetUrl()}'>
+				<a href='{$item->getUrl()}' target='{$item->getTargetValue()}'>
 					<div class='container-fluid'>
 						<div class='row'>
 							<div>
@@ -103,14 +102,14 @@ class Carousel extends AbstractSlider {
 				</a>
 			</div>";
 		}
-		
+
 		return $html;
 	}
-	
+
 	public function getSliderHtmlId() {
 		return $this->sliderHtmlId;
 	}
-	
+
 	public function getSliderHtmlIdWrapper() {
 		return $this->sliderHtmlIdWrapper;
 	}

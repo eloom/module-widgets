@@ -26,8 +26,7 @@ class Item extends \Magento\Framework\Model\AbstractModel {
 	const BASE_MEDIA_PATH = 'eloom/slider/images';
 
 	const TARGET_SELF = 0;
-	const TARGET_PARENT = 1;
-	const TARGET_BLANK = 2;
+	const TARGET_BLANK = 1;
 
 	protected $sliderCollectionFactory;
 
@@ -150,11 +149,8 @@ class Item extends \Magento\Framework\Model\AbstractModel {
 		switch ($this->getTarget()) {
 			case self::TARGET_SELF:
 				return '_self';
-			case self::TARGET_PARENT:
+			case self::TARGET_BLANK:
 				return '_parent';
-
-			default:
-				return '_blank';
 		}
 	}
 }

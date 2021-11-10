@@ -12,7 +12,7 @@ if ($exist = ($items && $items->getSize())) {
 				<div class="item full overlay">
 					<div class="image large overlay" style="background-image:url(<?php echo $block->getItemImageUrl($item) ?>)"></div>
 					<div class="image mobile overlay" style="background-image:url(<?php echo $block->getItemMobileImageUrl($item) ?>)"></div>
-					<a href="<?php echo $item->getUrl() ?>" target="<?php echo $item->getTargetUrl() ?>">
+					<a href="<?php echo $item->getUrl() ?>" target="<?php echo $item->getTargetValue() ?>">
 						<div class="container">
 							<div class="row">
 								<div>

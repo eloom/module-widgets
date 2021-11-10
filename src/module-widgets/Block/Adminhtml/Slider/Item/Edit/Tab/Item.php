@@ -214,10 +214,6 @@ class Item extends Generic implements TabInterface {
 						'label' => __('Opens the linked document in the same frame as it was clicked'),
 					],
 					[
-						'value' => \Eloom\Widgets\Model\Item::TARGET_PARENT,
-						'label' => __('Opens the linked document in the parent frame'),
-					],
-					[
 						'value' => \Eloom\Widgets\Model\Item::TARGET_BLANK,
 						'label' => __('Opens the linked document in a new window or tab'),
 					],
