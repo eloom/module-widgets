@@ -24,7 +24,7 @@ class MassDisable extends \Eloom\Widgets\Controller\Adminhtml\AbstractAction {
 		$collection = $this->massActionFilter->getCollection($sliderCollection);
 		$collectionSize = $collection->getSize();
 		foreach ($collection as $item) {
-			$item->setStatus(StatusesArray::STATUS_DISABLED);
+			$item->setStatus(StatusesArray::DISABLED);
 			try {
 				$item->save();
 

@@ -27,7 +27,7 @@ class MassEnable extends \Eloom\Widgets\Controller\Adminhtml\AbstractAction {
 		$collection->setStoreId($storeId);
 		foreach ($collection as $item) {
 			$item->setStoreId($storeId);
-			$item->setStatus(StatusesArray::STATUS_ENABLED);
+			$item->setStatus(StatusesArray::ENABLED);
 			try {
 				$item->save();
 

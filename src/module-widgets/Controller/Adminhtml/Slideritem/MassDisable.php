@@ -27,7 +27,7 @@ class MassDisable extends \Eloom\Widgets\Controller\Adminhtml\AbstractAction {
 		$collection->setStoreId($storeId);
 		foreach ($collection as $item) {
 			$item->setStoreId($storeId);
-			$item->setStatus(StatusesArray::STATUS_DISABLED);
+			$item->setStatus(StatusesArray::DISABLED);
 			try {
 				$item->save();
 
