@@ -27,7 +27,6 @@ class MassDisable extends \Eloom\Widgets\Controller\Adminhtml\AbstractAction {
 			$item->setStatus(StatusesArray::DISABLED);
 			try {
 				$item->save();
-
 			} catch (\Exception $e) {
 				$this->messageManager->addError($e->getMessage());
 			}

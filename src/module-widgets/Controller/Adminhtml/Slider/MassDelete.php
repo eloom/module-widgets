@@ -37,6 +37,7 @@ class MassDelete extends \Eloom\Widgets\Controller\Adminhtml\AbstractAction {
 			}
 		}
 		$resultRedirect = $this->resultRedirectFactory->create();
+
 		return $resultRedirect->setPath('*/*/');
 	}
 }

@@ -14,7 +14,9 @@ declare(strict_types=1);
 
 namespace Eloom\Widgets\Block\Adminhtml;
 
-class Slider extends \Magento\Backend\Block\Widget\Grid\Container {
+use Magento\Backend\Block\Widget\Grid\Container;
+
+class Slider extends Container {
 
 	protected function _construct() {
 		$this->_controller = 'adminhtml_slider';

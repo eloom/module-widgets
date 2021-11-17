@@ -93,9 +93,7 @@ abstract class AbstractAction extends \Magento\Backend\App\Action {
 	}
 
 	protected function _createMainCollection() {
-		$collection = $this->_objectManager->create('Eloom\Widgets\Model\ResourceModel\Slider\Item\Collection');
-
-		return $collection;
+		return $this->_objectManager->create('Eloom\Widgets\Model\ResourceModel\Slider\Item\Collection');
 	}
 
 	protected function _getBackResultRedirect(\Magento\Framework\Controller\Result\Redirect $resultRedirect, $paramCrudId = null) {

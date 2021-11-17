@@ -12,13 +12,13 @@
 */
 declare(strict_types=1);
 
-namespace Eloom\Widgets\Controller\Adminhtml\Slider;
+namespace Eloom\Widgets\Block\Widget\Skeleton;
 
-class NewAction extends \Eloom\Widgets\Controller\Adminhtml\Slider {
-
-	public function execute() {
-		$resultForward = $this->resultForwardFactory->create();
-
-		return $resultForward->forward('edit');
+class Brand extends AbstractSkeleton {
+	
+	protected $_template = "widget/brand.phtml";
+	
+	public function getJsonConfig() {
+		return $this->jsonEncoder->encode([]);
 	}
 }

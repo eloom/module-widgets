@@ -24,8 +24,6 @@ class Index extends \Eloom\Widgets\Controller\Adminhtml\Slider {
 			return $resultForward;
 		}
 
-		$resultPage = $this->resultPageFactory->create();
-
-		return $resultPage;
+		return $this->resultPageFactory->create();
 	}
 }

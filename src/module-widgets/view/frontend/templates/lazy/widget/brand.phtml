@@ -1,0 +1,59 @@
+<?php
+/* @var $block \Eloom\Widgets\Block\Widget\Brand */
+$items = $block->getItems();
+if ($exist = ($items && $items->getSize())) {
+	$alias = 'widget-brand-' . $this->getAlias();
+}
+?>
+<?php if ($exist):?>
+    <div class="widget <?php echo $alias;?>">
+    	<div class="block-title">
+		    <strong role="heading" aria-level="2"><?= $block->escapeHtml(__('Shop by Brand')) ?></strong>
+	    </div>
+	    <div class="block-content">
+			<div id="<?php echo $alias; ?>" class="owl-carousel owl-theme">
+				<?php foreach ($items as $item):?>
+					<div class="item">
+                        <a href="<?php echo $this->getUrlBrand($item) ?>">
+                            <img class="brand img-responsive" src="<?php echo $this->getImage($item)?>" alt="<?php echo __($item->getTitle()) ?>" title="<?php echo __($item->getTitle()) ?>" />
+                        </a>
+					</div>
+				<?php endforeach ?>
+			</div>
+		</div>
+    </div>
+
+	<script type="text/x-magento-init">
+    {
+        "<?php echo "#{$alias}"?>": {
+            "EloomOwlCarousel": {
+                "autoplay": true,
+                "autoplayTimeout": 3000,
+                "autoplayHoverPause": true,
+                "loop": true,
+                "margin": 10,
+                "rewindNav": true,
+                "navText": ["", ""],
+                "animateOut": "fadeOut",
+                "responsive": {
+                    "0": {
+                        "items": 3,
+                        "nav": true,
+                        "dots": true
+                    },
+                    "600": {
+                        "items": 6,
+                        "nav": true,
+                        "dots": true
+                    },
+                    "1000": {
+                        "items": 8,
+                        "nav": true,
+                        "dots": true
+                    }
+                }
+            }
+        }
+    }
+	</script>
+<?php endif;?>
