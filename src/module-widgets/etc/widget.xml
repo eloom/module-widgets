@@ -103,8 +103,8 @@
 		<label>eloom | Best Sellers</label>
 		<description></description>
 		<parameters>
-			<parameter name="products_count" xsi:type="text" visible="true" required="true">
-				<label translate="true">Number of Products to Display</label>
+			<parameter name="products_page" xsi:type="text" required="true" visible="true">
+				<label translate="true">Number of Products per Page</label>
 				<value>12</value>
 			</parameter>
 			<parameter name="template" xsi:type="select" visible="true" required="true">
@@ -176,6 +176,10 @@
 					</option>
 				</options>
 			</parameter>
+			<parameter name="products_page" xsi:type="text" required="true" visible="true">
+				<label translate="true">Number of Products per Page</label>
+				<value>12</value>
+			</parameter>
 			<parameter name="products_count" xsi:type="text" required="true" visible="true">
 				<label translate="true">Number of Products to Display</label>
 				<value>20</value>
@@ -219,6 +223,10 @@
 			<parameter name="title" xsi:type="text" visible="true" required="true">
 				<label translate="true">Title</label>
 			</parameter>
+			<parameter name="products_page" xsi:type="text" required="true" visible="true">
+				<label translate="true">Number of Products per Page</label>
+				<value>12</value>
+			</parameter>
 			<parameter name="products_count" xsi:type="text" required="true" visible="true">
 				<label translate="true">Number of Products to Display</label>
 				<value>20</value>
@@ -249,6 +257,9 @@
 		<label translate="true">eloom | Brands</label>
 		<description></description>
 		<parameters>
+			<parameter name="title" xsi:type="text" visible="true">
+				<label translate="true">Shop by Brand</label>
+			</parameter>
 			<parameter name="template" xsi:type="select" required="true" visible="true">
 				<label translate="true">Template</label>
 				<options>

@@ -7,9 +7,11 @@ if ($exist = ($items && $items->getSize())) {
 ?>
 <?php if ($exist):?>
     <div class="widget <?php echo $alias;?>">
-    	<div class="block-title">
-		    <strong role="heading" aria-level="2"><?= $block->escapeHtml(__('Shop by Brand')) ?></strong>
-	    </div>
+        <?php if($block->getTitle()):?>
+    	    <div class="block-title">
+		        <strong role="heading" aria-level="2"><?= $block->escapeHtml($block->getTitle()) ?></strong>
+	        </div>
+        <?php endif;?>
 	    <div class="block-content">
 			<div id="<?php echo $alias; ?>" class="owl-carousel owl-theme">
 				<?php foreach ($items as $item):?>

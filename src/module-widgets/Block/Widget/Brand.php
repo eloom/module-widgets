@@ -45,6 +45,10 @@ class Brand extends \Eloom\ThemeFrontend\Block\Brand\Brand implements BlockInter
 		return [self::DEFAULT_CACHE_TAG, self::DEFAULT_CACHE_TAG . '_' . $this->_storeManager->getStore()->getStoreId()];
 	}
 
+	public function getTitle() {
+		return $this->getData('title');
+	}
+
 	public function getItems() {
 		return $this->getBrandCollection();
 	}

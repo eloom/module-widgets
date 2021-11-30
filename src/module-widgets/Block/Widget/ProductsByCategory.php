@@ -38,12 +38,12 @@ class ProductsByCategory extends AbstractProduct implements BlockInterface {
 	/**
 	 * Default value for products count that will be shown
 	 */
-	const DEFAULT_PRODUCTS_COUNT = 10;
+	const DEFAULT_PRODUCTS_COUNT = 20;
 	
 	/**
 	 * Default value for products per page
 	 */
-	const DEFAULT_PRODUCTS_PER_PAGE = 4;
+	const DEFAULT_PRODUCTS_PER_PAGE = 12;
 	
 	/**
 	 * Default value whether show pager or not
